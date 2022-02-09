@@ -16,5 +16,5 @@ var mp4File = `share/${args[1]}`;
     .setOutputFile(mp4File)
     .start();
 
-  console.log("File converted");
+  console.log(`File[${mp4File}] converted!`);
 })();

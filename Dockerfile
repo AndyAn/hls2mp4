@@ -11,10 +11,8 @@ WORKDIR /app
 RUN mkdir -p /usr/local/bin/ffmpeg && mkdir -p /app/share
 VOLUME /app/share
 COPY --from=builder /app/ffmpeg-git-20220108-arm64-static/ffmpeg /usr/local/bin/ffmpeg
-RUN ln -s /usr/local/bin/ffmpeg/ffmpeg /usr/bin/ffmpeg
-RUN cd /app && npm install --save m3u8-to-mp4
+RUN ln -s /usr/local/bin/ffmpeg/ffmpeg /usr/bin/ffmpeg && cd /app && npm install --save m3u8-to-mp4
 
 COPY loader.js .
 
 ENTRYPOINT [ "node", "loader.js" ]
-#ENTRYPOINT [ "ls", "-l" ]
